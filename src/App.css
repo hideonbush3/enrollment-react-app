@@ -14,11 +14,18 @@
     font-family: inherit;
     font-size: inherit;
 }
-.enrolForm button[type=submit]
+.enrolForm input[type=submit]
 {
     background: #4691A4;
     font-family: inherit;
     font-size: inherit;
     cursor: pointer;
     color: white;
+}
+.message
+{
+ color:green;
+ font-family: inherit;
+ font-size: 30px;
+ font-style: italic;
 }
