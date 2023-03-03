@@ -86,6 +86,7 @@
 .message {
   color: blue;
   width: 500px;
+  white-space: pre-line;
 }
 .actionIcon {
   font-size: 16px;
@@ -95,4 +96,5 @@
 .redOne {
   color: red;
   width: 500px;
+  white-space: pre-line;
 }
