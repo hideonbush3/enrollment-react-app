@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import "../App.css";
-import EnrolList from "./EnrolList";
 
 const EnrollmentForm = (props) => {
   // 폼에 입력한 이름과 성을 기억하기 위해서 state형 변수 선언
@@ -26,6 +25,18 @@ const EnrollmentForm = (props) => {
       setMsgStyle("message");
       msg = `환영합니다, ${firstName} ${lastName} 님\n
        ${email}로 메일을 보냈습니다`;
+
+      // 등록완료된 학생정보에 사용할 key 생성
+      const rndKey = Math.floor(1000+Math.random()*9000);
+      // 생성한 key와 등록완료된 학생정보를 props에 저장
+      let stud = {
+        key: rndKey,
+        fname: firstName,
+        lname: lastName,
+        program: props.chosenProgram,
+        email: email,
+      };
+      props.setStudDetails(stud)
     }
     setWelcomeMessage(msg);
     e.preventDefault(); // submit 기능 부모요소에게 전파 중지, 이것을 빼면 submit하고 페이지가 초기화됨
@@ -37,7 +48,7 @@ const EnrollmentForm = (props) => {
   return (
     <div>
       <div className='enrolContainer'>
-      <form className="enrolForm" onSubmit={handleSubmit}>
+      <form className="enrolForm">
         <ul className='ulEnrol'>
           <li>
             <label htmlFor='FirstName'></label>
