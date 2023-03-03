@@ -3,13 +3,18 @@ import { useState } from "react";
 import "../App.css";
 
 const EnrollmentForm = () => {
+  // 폼에 입력한 이름과 성을 기억하기 위해서 state형 변수 선언
+  // onBlur 이벤트 발생시 입력한 이름과 성을
+  // firstName, lastName에 저장
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  // state형 변수에 저장된 이름과 성을 메세지로 출력하기위해 선언
   const [welcomeMessage, setWelcomeMessage] = useState("");
 
+  // 등록하기 버튼 클릭시 '환영합니다 이름 성 님!' 을 폼 아래쪽에 출력함
   const handleSubmit = (e) => {
-    setWelcomeMessage(`환영합니다 ${firstName} ${lastName} 님!`);
-    e.preventDefault(); // submit 기능 중지
+    setWelcomeMessage(`환영합니다, ${firstName} ${lastName} 님!`);
+    e.preventDefault(); // submit 기능 부모요소에게 전파 중지, 이것을 빼면 submit하고 페이지가 초기화됨
   };
   return (
     <div>
@@ -21,9 +26,10 @@ const EnrollmentForm = () => {
           <input
             type="text"
             name="fname"
-            /* onBlur 이벤트가 발생하면 그 이벤트를 발생시킨
-            주체의 value로 firstName state의 값을 바꾼다
-            여기서 주체는 onBlur를 포함하고 있는 input태그임 */
+            /* e는 이벤트 객체임 React에서 이벤트 핸들러 함수는
+             항상 이벤트 객체를 인수로 받음 이벤트 객체에는 이벤트에 대한 정보가 담겨있음
+               e.target은 이벤트가 발생한 요소 input을 나타냄
+               e.target.value는 이벤트가 발생한 요소의 값 */
             onBlur={(e) => setFirstName(e.target.value)}
           />
         </div>

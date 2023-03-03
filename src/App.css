@@ -14,7 +14,7 @@
     font-family: inherit;
     font-size: inherit;
 }
-.enrolForm input[type=submit]
+.enrolForm button[type=submit]
 {
     background: #4691A4;
     font-family: inherit;
