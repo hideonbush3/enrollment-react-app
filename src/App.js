@@ -5,8 +5,8 @@ import EnrollmentForm from "./components/EnrollmentForm";
 // 정의된 App 컴포넌트
 const App = () => {
     const [program, setProgram] = useState('UG');
-    const [ugseats, setUgSeats] = useState(60);    // 참가가능 인원
-    const [pgseats, setPgSeats] = useState(40);    // 참가가능 인원
+    const [ugseats, setUgSeats] = useState(1);    // 참가가능 인원
+    const [pgseats, setPgSeats] = useState(1);    // 참가가능 인원
     const handleChange = (e) => {
         setProgram(e.target.value);
     };
