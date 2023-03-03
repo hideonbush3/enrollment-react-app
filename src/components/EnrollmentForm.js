@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import "../App.css";
+import EnrolList from "./EnrolList";
 
 const EnrollmentForm = (props) => {
   // 폼에 입력한 이름과 성을 기억하기 위해서 state형 변수 선언
