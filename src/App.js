@@ -11,8 +11,8 @@ const App = () => {
 
 
   // 과정 등록한 학생 정보를 저장하는 변수 선언
-
   const [studDetails, setStudDetails] = useState({});
+
   const [action, setAction] = useState(); // 작업종류 지정
   const [selItemKey, setSelItemKey] = useState(); // 등록정보 키
 
@@ -31,6 +31,14 @@ const App = () => {
     setAction(action);
     setSelItemKey(key);
   }
+
+  // 등록학생 삭제시 프로그램 참가가능 인원수 조정
+  const restoreSeats = (pgm) => {
+    pgm === 'UG' ? setUgSeats(ugseats + 1) : setPgSeats(pgseats + 1);
+    // 삭제, 수정을 나타내는 액션 state 초기화
+    setAction("");
+  }
+
   return (
     <div className="App">
       <div className="programs">
@@ -59,6 +67,7 @@ const App = () => {
                  setStudDetails={setStudDetails}
                  action={action}
                  selectedItemKey={selItemKey}
+                 restoreSeats={restoreSeats}
       />
     </div>
   );
