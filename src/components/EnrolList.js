@@ -72,6 +72,8 @@ const EnrolList = (props) => {
       )[0];
       // 삭제 대상 아이템만 제외하고 다시 새로운 items 객체 생성
       items = items.filter((item) => item !== deleteItem)
+      // 삭제한 학생에 대한 참가가능 인원수 복구
+      props.restoreSeats(deleteItem.program);
     }
   }, [props]);
   return (
