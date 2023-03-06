@@ -64,6 +64,15 @@ const EnrolList = (props) => {
       items = [...items, props.studDetails];
       props.setStudDetails({});
     }
+    // 삭제 기능 수행
+    if(props.action === 'delete'){
+      // 삭제 대상 아이템을 키로 가져옴
+      const deleteItem = items.filter(  // items는 등록된 학생의 모든 정보. 그 중 하나하나씩 검색하면서 키와  App.js에서 넘겨준 selItemKey키가 일치하는지 확인하고 일치하면 deleteItem에 할당
+          (item) => item.key === props.selectedItemKey
+      )[0];
+      // 삭제 대상 아이템만 제외하고 다시 새로운 items 객체 생성
+      items = items.filter((item) => item !== deleteItem)
+    }
   }, [props]);
   return (
     <div className="enrolList">
