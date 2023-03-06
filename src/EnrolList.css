@@ -1,0 +1,14 @@
+.enrolList {
+  position: absolute;
+  top: 920px;
+  left: 52%;
+  transform: translate(-50%, -50%);
+  width: 620px;
+  height: 450px;
+  text-align: center;
+  display: flex;
+  margin-top: 100px;
+}
+div[role="checkbox"] {
+  display: none;
+}
